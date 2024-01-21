@@ -3,10 +3,6 @@ import quizCompleteImg from "../assets/quiz-complete.png";
 import QUESTIONS from "../constants/questions";
 
 const Summary = ({ userAnswers }) => {
-    //   const skippedAnswerCount = userAnswers.reduce(
-    //     (count, answer) => (answer === null ? count + 1 : count),
-    //     0
-    //   );
   const {correctAnswerCount, skippedAnswerCount} = userAnswers.reduce(
     (count, answer, index) => {
       const correctAnswer = QUESTIONS[index].answers[0];
@@ -16,6 +12,7 @@ const Summary = ({ userAnswers }) => {
     },
     { correctAnswerCount: 0, skippedAnswerCount: 0 }
   );
+
   const skippedPercentage = Math.round(
     (skippedAnswerCount * 100) / userAnswers.length
   );
